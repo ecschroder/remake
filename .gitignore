@@ -1,0 +1,6 @@
+﻿*.pyc
+local_settings.py
+coverage
+docs/_build
+docs/_static
+*~
