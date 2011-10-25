@@ -26,13 +26,19 @@ urlpatterns = patterns('',
 	url(
 		regex = r'^trashure/$',
 		view = 'trashure.views.index',
-		name = "index",
+		name = 'index',
 	),
 
 	url (
 		regex = r'^trashure/(?P<knickknack_id>\d+)/$',
 		view = 'trashure.views.detail',
-		name = "detail",
+		name = 'detail',
+	),
+	
+	url (
+		regex = r'^trashure/(?P<knickknack_id>\d+)/login/$',
+		view = 'trashure.views.login',
+		name = 'login',
 	),
 )
 

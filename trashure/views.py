@@ -12,13 +12,13 @@ def detail(request, knickknack_id):
 	p = get_object_or_404(KnickKnack, pk=knickknack_id)
 	randomtrash = KnickKnack.objects.order_by('?')[:4]
 	return render_to_response(
-			'trashure/detail.html',
-			dictionary={
-				'knickknack': p,
-				'randromtrash': randomtrash,
-			},								
-			context_instance=RequestContext(request)
-		)
+		'trashure/detail.html',
+		dictionary={
+			'knickknack': p,
+			'randromtrash': randomtrash,
+		},								
+		context_instance=RequestContext(request)
+	)
 
 
 def index(request):
@@ -28,11 +28,21 @@ def index(request):
 	toptrash = KnickKnack.objects.order_by('score')[:4]
 	
 	return render_to_response(
-			'trashure/index.html',
-			dictionary={
-				'randomtrash': randomtrash,
-				'toptreasure': toptreasure,
-				'toptrash': toptrash,
-			},								
-			context_instance=RequestContext(request)
-		)
+		'trashure/index.html',
+		dictionary={
+			'randomtrash': randomtrash,
+			'toptreasure': toptreasure,
+			'toptrash': toptrash,
+		},								
+		context_instance=RequestContext(request)
+	)
+
+def login(request, knickknack_id):
+	p = get_object_or_404(KnickKnack, pk=knickknack_id)
+	return render_to_response(
+		'trashure/login.html',
+		dictionary={
+			'knickknack': p,
+		},
+		context_instance=RequestContext(request)
+	)
