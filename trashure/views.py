@@ -4,6 +4,7 @@ from django.template import loader
 from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
+from django.utils.translation import ugettext_lazy as _
 
 from trashure.models import KnickKnack
 
@@ -14,11 +15,10 @@ def detail(request, knickknack_id):
 			'trashure/detail.html',
 			dictionary={
 				'knickknack': p,
-				'relatedtrash': relatedtrash,
+				'randromtrash': randomtrash,
 			},								
 			context_instance=RequestContext(request)
 		)
-)
 
 
 def index(request):
@@ -36,4 +36,3 @@ def index(request):
 			},								
 			context_instance=RequestContext(request)
 		)
-)

@@ -17,17 +17,29 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
    
     # Uncomment the next line to enable the admin:
-	url(r'^admin/', include(admin.site.urls)),
+	url(
+		regex = r'^admin/',
+		view = include(admin.site.urls),
+		name = "admin",
+	),
 	
 	url(
-		regex = r"^trashure/$",
-		view = trashure.views.index,
+		regex = r'^trashure/$',
+		view = 'trashure.views.index',
 		name = "index",
 	),
 
 	url (
-		regex = r"^trashure/(?P<knickknack_id>\d+)/$",
-		view = trashure.views.detail,
+		regex = r'^trashure/(?P<knickknack_id>\d+)/$',
+		view = 'trashure.views.detail',
 		name = "detail",
 	),
 )
+
+
+if settings.DEBUG:
+	urlpatterns += patterns('', url(
+		r'^media/(?P<path>.*)$',
+		'django.views.static.serve',
+		{'document_root': settings.MEDIA_ROOT, }
+	))
