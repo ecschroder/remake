@@ -15,7 +15,7 @@ def detail(request, knickknack_id):
 		'trashure/detail.html',
 		dictionary={
 			'knickknack': p,
-			'randromtrash': randomtrash,
+			'randomtrash': randomtrash,
 		},								
 		context_instance=RequestContext(request)
 	)

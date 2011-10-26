@@ -40,6 +40,13 @@ urlpatterns = patterns('',
 		view = 'trashure.views.login',
 		name = 'login',
 	),
+	
+	url (
+		regex = r'^trashure/(?P<knickknack_id>\d+)/login/$',
+		view = 'django.contrib.auth.views.login',
+		name = 'login1',
+	),
+		
 )
 
 
