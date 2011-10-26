@@ -1,0 +1,69 @@
+{% extends "trashure/base.html" %}
+
+{% block title %}Trash or Treasure? // {{ knickknack.name }} {% endblock %}
+
+{% block content %}
+<body>
+
+<div id="wrapper">
+
+<h2>{{ knickknack.name }} <span>c. {{ knickknack.year|date:"Y"}} </span></h2>
+
+<img class="detail" src="/{{ knickknack.photo }}" alt="" />
+
+<div class="sidebar">
+
+
+	<div id="input">	
+		<a id="vote" class="treasure" href="{% url detail knickknack.pk %}login">Treasure this Gem</a>
+		<a class="vote trash" href="{% url detail knickknack.pk %}login">Trash that Shh</a>
+	</div>
+	
+	<div id="meta">
+		<h3><span>Description</span></h3>
+		<p>{{ knickknack.description }}</p>
+		
+		<h3><span>Memory</span></h3>
+		<p>{{ knickknack.memory }}</p>
+	</div>
+
+	<div id="results">
+	<h4>What do other folks think?</h4>
+	<div id="tally">
+		<h3>Treasure:&nbsp;{{ knickknack.treasure_counter }}</h3>
+		<h3>Trash:&nbsp;{{ knickknack.trash_counter }}</h3>
+	</div>	
+	</div>	
+	
+<div id="controls">
+{% comment %} <a class="last" href= {% url detail previous_item.pk %} >&laquo; this</a>	{% endcomment %}
+
+{% comment %} <a class="next" href={% url detail next_item.pk %}>skip &raquo;</a> {% endcomment %}
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="you_might_also_dislike">
+<h3>You might also dislike:</h3>
+{% for i in randomtrash %}
+	<a href="{% url detail i.pk %}"><img class="quarter" src="/{{ i.photo }}" alt="" /></a>
+{% endfor %}
+</div>
+
+</div>
+
+<script type="text/javascript">
+$('#results').click(function() {
+  $('#tally').toggle('fade', function() {
+  });
+});
+</script>
+
+</body>
+
+{% endblock %}

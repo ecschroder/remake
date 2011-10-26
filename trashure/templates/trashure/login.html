@@ -1,0 +1,62 @@
+﻿{% extends "trashure/base.html" %}
+
+{% block title %}Trash or Treasure? // Login {% endblock %}
+
+{% block content %}
+
+{% csrf_token %}
+<body>
+
+<div id="wrapper">
+
+<div class="width_2_narrow floatLeft">
+
+{% if error %}
+{{ error }}
+{% endif %}
+
+<form action="." method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+
+	<h1> Treasure? Or trash? </h1>
+	<h3>{{ knickknack.name }} <span>c. {{ knickknack.year|date:"Y"}}</span></h3>
+
+	<img class="thumbnail" src="/{{ knickknack.photo }}" alt="" />
+
+	<p>{{ knickknack.memory }}</p>
+
+	</div>	
+	
+<div class="width_1 floatRight">
+
+<div id="login">
+	<form>
+		<h1>Login to vote... </h1>
+		<label>Username</label>
+		<input type="text" />
+
+		<label>Password</label>
+		<input type="password" />
+		
+		<input type="submit" value="Login" />
+	</form>
+</div>
+	
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+$('#results').click(function() {
+  $('#tally').toggle('fade', function() {
+  });
+});
+</script>
+
+</body>
+
+{% endblock %}

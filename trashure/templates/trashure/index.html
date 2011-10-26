@@ -1,0 +1,60 @@
+{% extends "trashure/base.html" %}
+
+{% comment %}Trash or Treasure? // {{ knickknack.name }} {% endcomment%}
+
+{% block content %}
+
+
+<body>
+
+<div id="wrapper">
+
+
+<h1>Trash or <span>Treasure</span>?</h1>
+
+<div id="aboveFold">
+
+	{% with randomtrash|first as first %}
+	<a href="{% url detail first.pk %}"><img class="whole" src="/{{ first.photo }}" alt="" /></a>
+	{% endwith %}
+
+	{% for k in randomtrash|slice:"1:" %}
+	<a href="{% url detail k.pk %}"><img class="half" src="/{{ k.photo }}" alt="" /></a>
+	{% endfor %}
+
+</div>
+
+
+<div id="featured_treasure" class="width_2 floatLeft">
+	<h3>Featured treasure:</h3>
+	
+	{% for i in toptreasure %}
+	<a href="{% url detail i.pk %}"><img class="half" src="/{{ i.photo }}" alt="" /></a>
+	{% endfor %}
+	
+	
+</div>
+
+
+<div id="featured_trash" class="width_1 floatLeft">
+	<h3>Featured trash:</h3>
+	
+	{% for j in toptrash %}
+	<a href="{% url detail j.pk %}"><img class="quarter" src="/{{ j.photo }}" alt="" /></a>
+	{% endfor %}	
+	
+</div>
+
+
+<h3>What's the deal here?</h3>
+	<p>I have a lot of junk. Well, some of it might not be junk. It might be treasure. The problem is, I'm having a hard time separating the Trash from the Treasure. Maybe you can help? Go ahead. Vote on it.</p>
+
+<h3>But...why?</h3>
+	<p>Trash or Treasure is a rookie Django project based on the Django Polls tutorial. It's a very simple app made just for fun. I've documented the process in the blog <a href="http://djangolookslikefun.wordpress.com" target="_blank">Django LooksLikeFun</a>. Comments are welcome.</p>
+
+</div>
+
+
+</body>
+
+{% endblock %}
