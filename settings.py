@@ -87,9 +87,6 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'x(**buj49zmjlnfh)#zy+g%wu&mcd-+_yqvqtngka-036tak=@'
-
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -150,3 +147,10 @@ LOGGING = {
         },
     }
 }
+
+
+# tip from https://code.djangoproject.com/wiki/SplitSettings
+# move SECRET_KEY settings to a separate file
+# then you can commit settings.py to github
+# without worrying about revealing the SECRET_KEY
+from settings_local import *
