@@ -15,10 +15,14 @@
 {{ error }}
 {% endif %}
 
+{% comment %}
+
 <form action="." method="post">{% csrf_token %}
 {{ form.as_p }}
 <input type="submit" value="Submit" />
 </form>
+
+{% endcomment %}
 
 
 	<h1> Treasure? Or trash? </h1>
@@ -28,8 +32,8 @@
 
 	<p>{{ knickknack.memory }}</p>
 
-	</div>	
-	
+	</div>
+
 <div class="width_1 floatRight">
 
 <div id="login">
@@ -40,11 +44,11 @@
 
 		<label>Password</label>
 		<input type="password" />
-		
+
 		<input type="submit" value="Login" />
 	</form>
 </div>
-	
+
 </div>
 
 </div>

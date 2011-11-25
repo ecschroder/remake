@@ -27,22 +27,22 @@
 
 <div id="featured_treasure" class="width_2 floatLeft">
 	<h3>Featured treasure:</h3>
-	
+
 	{% for i in toptreasure %}
 	<a href="{% url detail i.pk %}"><img class="half" src="/{{ i.photo }}" alt="" /></a>
 	{% endfor %}
-	
-	
+
+
 </div>
 
 
 <div id="featured_trash" class="width_1 floatLeft">
 	<h3>Featured trash:</h3>
-	
+
 	{% for j in toptrash %}
 	<a href="{% url detail j.pk %}"><img class="quarter" src="/{{ j.photo }}" alt="" /></a>
-	{% endfor %}	
-	
+	{% endfor %}
+
 </div>
 
 
@@ -50,11 +50,14 @@
 	<p>I have a lot of junk. Well, some of it might not be junk. It might be treasure. The problem is, I'm having a hard time separating the Trash from the Treasure. Maybe you can help? Go ahead. Vote on it.</p>
 
 <h3>But...why?</h3>
-	<p>Trash or Treasure is a rookie Django project based on the Django Polls tutorial. It's a very simple app made just for fun. I've documented the process in the blog <a href="http://djangolookslikefun.wordpress.com" target="_blank">Django LooksLikeFun</a>. Comments are welcome.</p>
+	<p>Trash or Treasure is a rookie Django project based on the Django Polls tutorial. It's a very simple app made for fun and learning. I'm writing about the process in the blog <a href="http://djangolookslikefun.wordpress.com" target="_blank">Django LooksLikeFun</a>. Comments are welcome.</p>
 
-</div>
 
+<h3>Que hora es?</h3>
+	<p>Hmm let's see. It's {{ now }}. Have a good day.</p>
 
 </body>
+
+</div>
 
 {% endblock %}
