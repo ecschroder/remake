@@ -64,8 +64,10 @@ COMMON_MEDIA_ROOT = os.path.realpath(os.path.join(MEDIA_ROOT, "common"))
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 
 # was like this...
-# ADMIN_MEDIA_PREFIX = '/static/admin/'
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+# you tried this, but it broke admin styles (d'uh)
+# ADMIN_MEDIA_PREFIX = '/media/'
 
 
 # URL prefix for static files.

@@ -28,9 +28,5 @@ class KnickKnack(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.score = self.votes_trash - self.votes_treasure
+        self.score = self.votes_treasure - self.votes_trash
         super(KnickKnack, self).save(*args, **kwargs)
-
-        class Admin:
-            list_display = ('name', 'votes_treasure')
-
