@@ -14,27 +14,27 @@
 <div class="sidebar">
 
 
-	<div id="input">	
+	<div id="input">
 		<a id="vote" class="treasure" href="{% url detail knickknack.pk %}login">Treasure this Gem</a>
 		<a class="vote trash" href="{% url detail knickknack.pk %}login">Trash that Shh</a>
 	</div>
-	
+
 	<div id="meta">
 		<h3><span>Description</span></h3>
 		<p>{{ knickknack.description }}</p>
-		
+
 		<h3><span>Memory</span></h3>
 		<p>{{ knickknack.memory }}</p>
 	</div>
 
 	<div id="results">
-	<h4>What do other folks think?</h4>
-	<div id="tally">
-		<h3>Treasure:&nbsp;{{ knickknack.treasure_counter }}</h3>
-		<h3>Trash:&nbsp;{{ knickknack.trash_counter }}</h3>
-	</div>	
-	</div>	
-	
+		<h4>What do other folks think?</h4>
+		<div id="tally">
+			<h3>Treasure:&nbsp;{{ knickknack.treasure_counter }}</h3>
+			<h3>Trash:&nbsp;{{ knickknack.trash_counter }}</h3>
+		</div>
+	</div>
+
 <div id="controls">
 {% comment %} <a class="last" href= {% url detail previous_item.pk %} >&laquo; this</a>	{% endcomment %}
 
@@ -43,8 +43,6 @@
 </div>
 
 </div>
-
-
 
 
 

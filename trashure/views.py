@@ -10,6 +10,7 @@ from trashure.models import KnickKnack
 
 import datetime
 
+
 def detail(request, knickknack_id):
     p = get_object_or_404(KnickKnack, pk=knickknack_id)
     randomtrash = KnickKnack.objects.order_by('?')[:4]
@@ -30,7 +31,6 @@ def index(request):
 
     # let's show the current date
     now = datetime.datetime.now()
-
 
     return render_to_response(
         'trashure/index.html',
@@ -53,3 +53,22 @@ def login(request, knickknack_id):
             },
         context_instance=RequestContext(request)
     )
+
+
+def filter(request):
+    randomtrash = KnickKnack.objects.order_by('?')[:9]
+
+    return render_to_response(
+        'trashure/filter.html',
+        dictionary={
+            'randomtrash': randomtrash,
+            },
+        context_instance=RequestContext(request)
+    )
+
+
+
+
+
+
+

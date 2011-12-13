@@ -46,6 +46,12 @@ urlpatterns = patterns('',
         view = 'django.contrib.auth.views.login',
         name = 'login1',
         ),
+
+     url(
+        regex = r'^trashure/treasurehunt/$',
+        view = 'trashure.views.filter',
+        name = 'treasurehunt',
+        )
 )
 
 
