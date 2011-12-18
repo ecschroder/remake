@@ -164,4 +164,10 @@ LOGGING = {
 # move SECRET_KEY settings to a separate file
 # then you can commit settings.py to github
 # without worrying about revealing the SECRET_KEY
+
+
+
+# hack from Audrey - temporary switch for deployment
 from settings_local import *
+
+# from djangozoom import *
