@@ -170,7 +170,8 @@ LOGGING = {
 # hack from Audrey - temporary switch for deployment
 
 try:
-    from settings_local import *
+#    from settings_local import *
+    from djangozoom import *
 except ImportError:
     pass
 # from djangozoom import *
